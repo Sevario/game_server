@@ -70,7 +70,7 @@ app.get('/api/skills/:userId', async (req, res) => {
       res.status(404).json({ error: `No skills found for the specified user` });
       return;
     }
-    res.json(result);
+    res.json({result});
     
   } catch (err) {
     console.error('Database query error:', err);
@@ -152,7 +152,7 @@ wss.on('connection', (ws) => {
   // intervalId = setInterval(serverFunction, 1000); // Run the function every 1000 ms (1 second)
 
   ws.on('message', (message) => {
-    updateXP(JSON.parse(message));
+    // updateXP(JSON.parse(message));
     console.log(`Received message: ${message}`);
     result = message;
     ws.send(''+result);
